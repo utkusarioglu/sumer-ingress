@@ -1,0 +1,55 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sumer-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: {{ .Values.host }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: web-dapp
+                port:
+                  number: 80
+          - path: /rest
+            pathType: Prefix
+            backend:
+              service:
+                name: rest-gateway
+                port:
+                  number: 80
+          - path: /io
+            pathType: Prefix
+            backend:
+              service:
+                name: websocket-gateway
+                port:
+                  number: 80
+    - host: utku.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: web-dapp
+                port:
+                  number: 80
+          - path: /rest
+            pathType: Prefix
+            backend:
+              service:
+                name: rest-gateway
+                port:
+                  number: 80
+          - path: /io
+            pathType: Prefix
+            backend:
+              service:
+                name: websocket-gateway
+                port:
+                  number: 80
