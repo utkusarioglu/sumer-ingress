@@ -14,42 +14,18 @@ spec:
               service:
                 name: web-dapp
                 port:
-                  number: 80
+                  number: 3000
           - path: /rest
             pathType: Prefix
             backend:
               service:
                 name: rest-gateway
                 port:
-                  number: 80
+                  number: 6000
           - path: /io
             pathType: Prefix
             backend:
               service:
                 name: websocket-gateway
                 port:
-                  number: 80
-    - host: utku.dev
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: web-dapp
-                port:
-                  number: 80
-          - path: /rest
-            pathType: Prefix
-            backend:
-              service:
-                name: rest-gateway
-                port:
-                  number: 80
-          - path: /io
-            pathType: Prefix
-            backend:
-              service:
-                name: websocket-gateway
-                port:
-                  number: 80
+                  number: 4000
