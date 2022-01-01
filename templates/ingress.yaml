@@ -21,7 +21,7 @@ spec:
               service:
                 name: rest-gateway
                 port:
-                  number: 6000
+                  number: 5000
           - path: /io
             pathType: Prefix
             backend:
