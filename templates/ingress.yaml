@@ -2,6 +2,9 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: sumer-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   ingressClassName: nginx
   defaultBackend:
@@ -26,7 +29,7 @@ spec:
                 name: websocket-gateway
                 port:
                   number: 4000
-          - path: /grafana
+          - path: /grafana/?(.*)
             pathType: Prefix
             backend:
               service:
