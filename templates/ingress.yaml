@@ -5,10 +5,10 @@ metadata:
 spec:
   ingressClassName: nginx
   defaultBackend:
-              service:
-                name: web-dapp
-                port:
-                  number: 3000
+    service:
+      name: web-dapp
+      port:
+        number: 3000
   rules:
     - http:
         paths:
@@ -26,3 +26,10 @@ spec:
                 name: websocket-gateway
                 port:
                   number: 4000
+          - path: /grafana
+            pathType: Prefix
+            backend:
+              service:
+                name: grafana
+                port: 
+                  number: 9000
