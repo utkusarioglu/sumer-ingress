@@ -4,17 +4,14 @@ metadata:
   name: sumer-ingress
 spec:
   ingressClassName: nginx
-  rules:
-    - host: {{ .Values.host }}
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
+  defaultBackend:
               service:
                 name: web-dapp
                 port:
                   number: 3000
+  rules:
+    - http:
+        paths:
           - path: /rest
             pathType: Prefix
             backend:
